@@ -7,7 +7,9 @@ import React from 'react';
 // import Component from './components/StorageComponent';
 // import Component from './components/AsyncComponent';
 // import Component from './components/EventListenerComponent';
-import Component from './components/OnScreenComponent';
+// import Component from './components/OnScreenComponent';
+// import Component from './components/WindowSizeComponent';
+import Component from './components/OnlineComponent';
 
 const App = () => {
   return (

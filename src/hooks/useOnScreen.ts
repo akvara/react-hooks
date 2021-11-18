@@ -4,18 +4,19 @@ export const useOnScreen = (ref: MutableRefObject<HTMLHeadElement | null>, rootM
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    if (!ref.current) {
+    let observerRefValue = ref.current;
+    if (!observerRefValue) {
       return;
     }
     const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), {
       rootMargin: `${rootMarginValue}px`,
     });
-    observer.observe(ref.current);
+    observer.observe(observerRefValue);
     return () => {
-      if (!ref.current) {
+      if (!observerRefValue) {
         return;
       }
-      observer.unobserve(ref.current);
+      observer.unobserve(observerRefValue);
     };
   }, [ref, rootMarginValue]);
 
